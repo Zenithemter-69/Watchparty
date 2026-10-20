@@ -18,12 +18,20 @@ class HabitRepository @Inject constructor(
 
     // Fetch all habits as LiveData (observed by ViewModel/HomeFragment)
     val habits: LiveData<List<Habit>> = habitDao.getAllHabits()
-        .map { it.map {
-            Habit(
-                it.id, it.name, it.category, it.timeOfDay,
-                it.isActive, it.targetFrequency, it.completionStreak, it.lastCompleted
-            )
-        } }.stateIn(
+        .map { list ->
+            list.map { h ->
+                Habit(
+                    id = h.id,
+                    name = h.name,
+                    category = h.category,
+                    timeOfDay = h.timeOfDay,
+                    isActive = h.isActive,
+                    targetFrequency = h.targetFrequency,
+                    completionStreak = h.completionStreak,
+                    lastCompleted = h.lastCompleted
+                )
+            }
+        }.stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
             emptyList()
@@ -38,4 +46,6 @@ class HabitRepository @Inject constructor(
     // Increment the completion streak and set lastCompleted timestamp
     suspend fun incrementStreak(id: Long, timestamp: Long) =
         habitDao.incrementStreak(id, timestamp)
+
+    suspend fun deleteAll() = habitDao.deleteAll()
 }

@@ -58,6 +58,22 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             viewModel.exportUserData()
         }
 
+        binding.btnClearHabits.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Clear All Habits?")
+                .setMessage("This will delete all habit records and reset your progress. This action cannot be undone.")
+                .setPositiveButton("Clear All") { _, _ ->
+                    viewModel.clearAllHabits()
+                    Toast.makeText(
+                        requireContext(),
+                        "All habits cleared",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
+        }
+
         binding.btnClearHistory.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("Clear History?")

@@ -12,11 +12,14 @@ interface HabitDao {
     fun getAllHabits(): Flow<List<HabitEntity>>
 
     @Insert
-    fun insertAll(habits: Array<HabitEntity>): LongArray
+    suspend fun insertAll(vararg habits: HabitEntity): LongArray
 
     @Update
-    fun update(habit: HabitEntity): Int
+    suspend fun update(habit: HabitEntity): Int
 
     @Query("UPDATE habits SET completionStreak = completionStreak + 1, lastCompleted = :timestamp WHERE id = :id")
-    fun incrementStreak(id: Long, timestamp: Long): Int
+    suspend fun incrementStreak(id: Long, timestamp: Long): Int
+
+    @Query("DELETE FROM habits")
+    suspend fun deleteAll()
 }
