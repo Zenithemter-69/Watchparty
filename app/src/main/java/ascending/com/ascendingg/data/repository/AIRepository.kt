@@ -1,19 +1,21 @@
 package ascending.com.ascendingg.data.repository
 
 import android.content.Context
+import ascending.com.ascendingg.data.network.GeminiClient
 import ascending.com.ascendingg.data.network.OpenAIClient
 import ascending.com.ascendingg.data.utils.PreferencesManager
 
 class AIRepository(private val context: Context) {
     private val prefs = PreferencesManager(context)
 
-    /** Real vs mock logic – if a key is present we hit OpenAI, otherwise mock replies */
+    /** Detects key format and routes to the appropriate AI provider.
+      *  - Keys starting with "sk-" → OpenAI
+      *  - Keys starting with "AI" (or other patterns) → Gemini
+      *  - Otherwise → mock replies */
     suspend fun getAIResponse(message: String): String {
         val key = prefs.getApiKey()
-        return if (!key.isNullOrBlank()) {
-            OpenAIClient(key).chat(message)
-        } else {
-            // ----- keep the original mock behaviour -----
+        return if (key.isNullOrBlank()) {
+            // ----- mock replies when no key configured -----
             val lowerMsg = message.lowercase()
             when {
                 lowerMsg.contains("habit") || lowerMsg.contains("routine") ->
@@ -31,6 +33,12 @@ class AIRepository(private val context: Context) {
                 else ->
                     "I'm your ASCEND AI Coach. Ask me about:\n\n• Your daily routine from the Elite Guide\n• Exercise form and progression\n• Study optimization\n• Habit troubleshooting\n• Progress analysis\n\nTry: 'Explain today's workout' or 'Why am I not seeing results?'"
             }
+        } else if (key.startsWith("sk-")) {
+            // OpenAI key – route to OpenAI client
+            OpenAIClient(key).chat(message)
+        } else {
+            // Assume any other format is a Gemini key
+            GeminiClient(key).chat(message)
         }
     }
 }
