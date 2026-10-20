@@ -21,6 +21,11 @@
         android:theme="@style/Theme.Ascendingg"
         android:usesCleartextTraffic="true">
 
+        <!-- Google Maps / Location API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_GOOGLE_MAPS_API_KEY"/>
+
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true"
