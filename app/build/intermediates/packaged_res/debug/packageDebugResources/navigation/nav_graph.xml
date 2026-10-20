@@ -1,0 +1,76 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="ascending.com.ascendingg.ui.fragment.HomeFragment"
+        android:label="Home" >
+        <argument
+            android:name="userId"
+            app:argType="long"
+            android:defaultValue="1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/routineFragment"
+        android:name="ascending.com.ascendingg.ui.fragment.RoutineFragment"
+        android:label="Routine" >
+        <argument
+            android:name="userId"
+            app:argType="long"
+            android:defaultValue="1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fitnessFragment"
+        android:name="ascending.com.ascendingg.ui.fragment.FitnessFragment"
+        android:label="Fitness" >
+        <argument
+            android:name="userId"
+            app:argType="long"
+            android:defaultValue="1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/studyFragment"
+        android:name="ascending.com.ascendingg.ui.fragment.StudyFragment"
+        android:label="Studies" >
+        <argument
+            android:name="userId"
+            app:argType="long"
+            android:defaultValue="1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aicoachFragment"
+        android:name="ascending.com.ascendingg.ui.fragment.AICoachFragment"
+        android:label="AI Coach" >
+        <argument
+            android:name="userId"
+            app:argType="long"
+            android:defaultValue="1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/insightsFragment"
+        android:name="ascending.com.ascendingg.ui.fragment.InsightsFragment"
+        android:label="Insights" >
+        <argument
+            android:name="userId"
+            app:argType="long"
+            android:defaultValue="1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="ascending.com.ascendingg.ui.fragment.ProfileFragment"
+        android:label="Profile" >
+        <argument
+            android:name="userId"
+            app:argType="long"
+            android:defaultValue="1L" />
+    </fragment>
+
+</navigation>

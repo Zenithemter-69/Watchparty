@@ -24,6 +24,9 @@ public final class FragmentProfileBinding implements ViewBinding {
   private final NestedScrollView rootView;
 
   @NonNull
+  public final MaterialButton btnClearHabits;
+
+  @NonNull
   public final MaterialButton btnClearHistory;
 
   @NonNull
@@ -45,11 +48,12 @@ public final class FragmentProfileBinding implements ViewBinding {
   public final TextView tvApiKeyStatus;
 
   private FragmentProfileBinding(@NonNull NestedScrollView rootView,
-      @NonNull MaterialButton btnClearHistory, @NonNull MaterialButton btnExportData,
-      @NonNull MaterialButton btnSaveApiKey, @NonNull EditText etApiKey,
-      @NonNull SwitchCompat switchNotifications, @NonNull MaterialToolbar toolbar,
-      @NonNull TextView tvApiKeyStatus) {
+      @NonNull MaterialButton btnClearHabits, @NonNull MaterialButton btnClearHistory,
+      @NonNull MaterialButton btnExportData, @NonNull MaterialButton btnSaveApiKey,
+      @NonNull EditText etApiKey, @NonNull SwitchCompat switchNotifications,
+      @NonNull MaterialToolbar toolbar, @NonNull TextView tvApiKeyStatus) {
     this.rootView = rootView;
+    this.btnClearHabits = btnClearHabits;
     this.btnClearHistory = btnClearHistory;
     this.btnExportData = btnExportData;
     this.btnSaveApiKey = btnSaveApiKey;
@@ -86,6 +90,12 @@ public final class FragmentProfileBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnClearHabits;
+      MaterialButton btnClearHabits = ViewBindings.findChildViewById(rootView, id);
+      if (btnClearHabits == null) {
+        break missingId;
+      }
+
       id = R.id.btnClearHistory;
       MaterialButton btnClearHistory = ViewBindings.findChildViewById(rootView, id);
       if (btnClearHistory == null) {
@@ -128,8 +138,9 @@ public final class FragmentProfileBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentProfileBinding((NestedScrollView) rootView, btnClearHistory, btnExportData,
-          btnSaveApiKey, etApiKey, switchNotifications, toolbar, tvApiKeyStatus);
+      return new FragmentProfileBinding((NestedScrollView) rootView, btnClearHabits,
+          btnClearHistory, btnExportData, btnSaveApiKey, etApiKey, switchNotifications, toolbar,
+          tvApiKeyStatus);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

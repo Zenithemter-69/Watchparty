@@ -1,6 +1,7 @@
 package ascending.com.ascendingg.data.database;
 
 import android.database.Cursor;
+import androidx.annotation.NonNull;
 import androidx.room.CoroutinesRoom;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
@@ -25,35 +26,37 @@ public final class WorkoutDao_Impl implements WorkoutDao {
 
   private final EntityInsertionAdapter<WorkoutEntity> __insertionAdapterOfWorkoutEntity;
 
-  public WorkoutDao_Impl(RoomDatabase __db) {
+  public WorkoutDao_Impl(@NonNull final RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfWorkoutEntity = new EntityInsertionAdapter<WorkoutEntity>(__db) {
       @Override
-      public String createQuery() {
+      @NonNull
+      protected String createQuery() {
         return "INSERT OR ABORT INTO `workouts` (`id`,`userId`,`type`,`duration`,`exercises`,`notes`,`timestamp`) VALUES (nullif(?, 0),?,?,?,?,?,?)";
       }
 
       @Override
-      public void bind(SupportSQLiteStatement stmt, WorkoutEntity value) {
-        stmt.bindLong(1, value.getId());
-        stmt.bindLong(2, value.getUserId());
-        if (value.getType() == null) {
-          stmt.bindNull(3);
+      protected void bind(@NonNull final SupportSQLiteStatement statement,
+          @NonNull final WorkoutEntity entity) {
+        statement.bindLong(1, entity.getId());
+        statement.bindLong(2, entity.getUserId());
+        if (entity.getType() == null) {
+          statement.bindNull(3);
         } else {
-          stmt.bindString(3, value.getType());
+          statement.bindString(3, entity.getType());
         }
-        stmt.bindLong(4, value.getDuration());
-        if (value.getExercises() == null) {
-          stmt.bindNull(5);
+        statement.bindLong(4, entity.getDuration());
+        if (entity.getExercises() == null) {
+          statement.bindNull(5);
         } else {
-          stmt.bindString(5, value.getExercises());
+          statement.bindString(5, entity.getExercises());
         }
-        if (value.getNotes() == null) {
-          stmt.bindNull(6);
+        if (entity.getNotes() == null) {
+          statement.bindNull(6);
         } else {
-          stmt.bindString(6, value.getNotes());
+          statement.bindString(6, entity.getNotes());
         }
-        stmt.bindLong(7, value.getTimestamp());
+        statement.bindLong(7, entity.getTimestamp());
       }
     };
   }
@@ -63,7 +66,7 @@ public final class WorkoutDao_Impl implements WorkoutDao {
     __db.assertNotSuspendingTransaction();
     __db.beginTransaction();
     try {
-      long[] _result = __insertionAdapterOfWorkoutEntity.insertAndReturnIdsArray(workouts);
+      final long[] _result = __insertionAdapterOfWorkoutEntity.insertAndReturnIdsArray(workouts);
       __db.setTransactionSuccessful();
       return _result;
     } finally {
@@ -77,8 +80,9 @@ public final class WorkoutDao_Impl implements WorkoutDao {
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
     _statement.bindLong(_argIndex, userId);
-    return CoroutinesRoom.createFlow(__db, false, new String[]{"workouts"}, new Callable<List<WorkoutEntity>>() {
+    return CoroutinesRoom.createFlow(__db, false, new String[] {"workouts"}, new Callable<List<WorkoutEntity>>() {
       @Override
+      @NonNull
       public List<WorkoutEntity> call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
@@ -90,7 +94,7 @@ public final class WorkoutDao_Impl implements WorkoutDao {
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfTimestamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
           final List<WorkoutEntity> _result = new ArrayList<WorkoutEntity>(_cursor.getCount());
-          while(_cursor.moveToNext()) {
+          while (_cursor.moveToNext()) {
             final WorkoutEntity _item;
             final long _tmpId;
             _tmpId = _cursor.getLong(_cursorIndexOfId);
@@ -134,6 +138,7 @@ public final class WorkoutDao_Impl implements WorkoutDao {
     });
   }
 
+  @NonNull
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();
   }

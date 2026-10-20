@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home_24"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/routineFragment"
+        android:icon="@drawable/ic_calendar_today_24"
+        android:title="@string/routine" />
+    <item
+        android:id="@+id/fitnessFragment"
+        android:icon="@drawable/ic_fitness_center_24"
+        android:title="@string/fitness" />
+    <item
+        android:id="@+id/studyFragment"
+        android:icon="@drawable/ic_school_24"
+        android:title="@string/study" />
+    <item
+        android:id="@+id/aicoachFragment"
+        android:icon="@drawable/ic_chat_24"
+        android:title="@string/aicoach" />
+    <item
+        android:id="@+id/insightsFragment"
+        android:icon="@drawable/ic_insert_chart_24"
+        android:title="@string/insights" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_person_24"
+        android:title="@string/profile" />
+</menu>

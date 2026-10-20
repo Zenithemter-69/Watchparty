@@ -5,20 +5,20 @@ package ascending.com.ascendingg.data.database;
 public final class HabitEntity {
     @androidx.room.PrimaryKey(autoGenerate = true)
     private final long id = 0L;
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     private final java.lang.String name = null;
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     private final java.lang.String category = null;
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     private final java.lang.String timeOfDay = null;
     private final boolean isActive = false;
     private final int targetFrequency = 0;
     private final int completionStreak = 0;
     private final long lastCompleted = 0L;
     
-    public HabitEntity(long id, @org.jetbrains.annotations.NotNull
-    java.lang.String name, @org.jetbrains.annotations.NotNull
-    java.lang.String category, @org.jetbrains.annotations.NotNull
+    public HabitEntity(long id, @org.jetbrains.annotations.NotNull()
+    java.lang.String name, @org.jetbrains.annotations.NotNull()
+    java.lang.String category, @org.jetbrains.annotations.NotNull()
     java.lang.String timeOfDay, boolean isActive, int targetFrequency, int completionStreak, long lastCompleted) {
         super();
     }
@@ -27,17 +27,17 @@ public final class HabitEntity {
         return 0L;
     }
     
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     public final java.lang.String getName() {
         return null;
     }
     
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     public final java.lang.String getCategory() {
         return null;
     }
     
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     public final java.lang.String getTimeOfDay() {
         return null;
     }
@@ -62,17 +62,17 @@ public final class HabitEntity {
         return 0L;
     }
     
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     public final java.lang.String component2() {
         return null;
     }
     
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     public final java.lang.String component3() {
         return null;
     }
     
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     public final java.lang.String component4() {
         return null;
     }
@@ -93,27 +93,27 @@ public final class HabitEntity {
         return 0L;
     }
     
-    @org.jetbrains.annotations.NotNull
-    public final ascending.com.ascendingg.data.database.HabitEntity copy(long id, @org.jetbrains.annotations.NotNull
-    java.lang.String name, @org.jetbrains.annotations.NotNull
-    java.lang.String category, @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
+    public final ascending.com.ascendingg.data.database.HabitEntity copy(long id, @org.jetbrains.annotations.NotNull()
+    java.lang.String name, @org.jetbrains.annotations.NotNull()
+    java.lang.String category, @org.jetbrains.annotations.NotNull()
     java.lang.String timeOfDay, boolean isActive, int targetFrequency, int completionStreak, long lastCompleted) {
         return null;
     }
     
-    @java.lang.Override
-    public boolean equals(@org.jetbrains.annotations.Nullable
+    @java.lang.Override()
+    public boolean equals(@org.jetbrains.annotations.Nullable()
     java.lang.Object other) {
         return false;
     }
     
-    @java.lang.Override
+    @java.lang.Override()
     public int hashCode() {
         return 0;
     }
     
-    @java.lang.Override
-    @org.jetbrains.annotations.NotNull
+    @java.lang.Override()
+    @org.jetbrains.annotations.NotNull()
     public java.lang.String toString() {
         return null;
     }

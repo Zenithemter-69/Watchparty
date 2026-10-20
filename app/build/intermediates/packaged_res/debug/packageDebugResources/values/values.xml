@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_primary">#C5F36A</color>
+    <color name="accent_secondary">#4D9FFF</color>
+    <color name="ai_message_bg">#FF1F2124</color>
+    <color name="bg_primary">#FF101114</color>
+    <color name="bg_secondary">#FF191B20</color>
+    <color name="border_color">#33FFFFFF</color>
+    <color name="divider_color">#33FFFFFF</color>
+    <color name="progress_track">#FF2A2D32</color>
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#9CA3AF</color>
+    <color name="user_message_bg">#FF4D9FFF</color>
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="default_padding">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="large_padding">16dp</dimen>
+    <dimen name="small_padding">4dp</dimen>
+    <string name="aicoach">AI Coach</string>
+    <string name="app_name">ASCEND</string>
+    <string name="fitness">Fitness</string>
+    <string name="home">Home</string>
+    <string name="insights">Insights</string>
+    <string name="profile">Profile</string>
+    <string name="routine">Routine</string>
+    <string name="study">Study</string>
+    <style name="Theme.Ascendingg" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/accent_primary</item>
+        <item name="colorPrimaryVariant">@color/accent_primary</item>
+        <item name="colorOnPrimary">@color/bg_primary</item>
+        
+        <item name="colorSecondary">@color/accent_secondary</item>
+        <item name="colorSecondaryVariant">@color/accent_secondary</item>
+        <item name="colorOnSecondary">@color/bg_primary</item>
+        
+        <item name="android:colorBackground">@color/bg_primary</item>
+        <item name="colorSurface">@color/bg_secondary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        
+        <item name="android:statusBarColor">@color/bg_primary</item>
+        <item name="android:navigationBarColor">@color/bg_primary</item>
+    </style>
+    <style name="Theme.WatchParty" parent="android:Theme.Material.Light.NoActionBar"/>
+    <style name="Widget.Ascendingg.ChatBubble" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+    </style>
+    <style name="Widget.Ascendingg.CircularProgressIndicator" parent="Widget.Material3.CircularProgressIndicator">
+        <item name="trackThickness">6dp</item>
+    </style>
+</resources>

@@ -2,6 +2,7 @@
 package ascending.com.ascendingg.ui.viewmodel;
 
 import android.app.Application;
+import ascending.com.ascendingg.data.repository.HabitRepository;
 import ascending.com.ascendingg.data.utils.PreferencesManager;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
@@ -23,23 +24,29 @@ public final class ProfileViewModel_Factory implements Factory<ProfileViewModel>
 
   private final Provider<PreferencesManager> prefsProvider;
 
+  private final Provider<HabitRepository> habitRepositoryProvider;
+
   public ProfileViewModel_Factory(Provider<Application> applicationProvider,
-      Provider<PreferencesManager> prefsProvider) {
+      Provider<PreferencesManager> prefsProvider,
+      Provider<HabitRepository> habitRepositoryProvider) {
     this.applicationProvider = applicationProvider;
     this.prefsProvider = prefsProvider;
+    this.habitRepositoryProvider = habitRepositoryProvider;
   }
 
   @Override
   public ProfileViewModel get() {
-    return newInstance(applicationProvider.get(), prefsProvider.get());
+    return newInstance(applicationProvider.get(), prefsProvider.get(), habitRepositoryProvider.get());
   }
 
   public static ProfileViewModel_Factory create(Provider<Application> applicationProvider,
-      Provider<PreferencesManager> prefsProvider) {
-    return new ProfileViewModel_Factory(applicationProvider, prefsProvider);
+      Provider<PreferencesManager> prefsProvider,
+      Provider<HabitRepository> habitRepositoryProvider) {
+    return new ProfileViewModel_Factory(applicationProvider, prefsProvider, habitRepositoryProvider);
   }
 
-  public static ProfileViewModel newInstance(Application application, PreferencesManager prefs) {
-    return new ProfileViewModel(application, prefs);
+  public static ProfileViewModel newInstance(Application application, PreferencesManager prefs,
+      HabitRepository habitRepository) {
+    return new ProfileViewModel(application, prefs, habitRepository);
   }
 }

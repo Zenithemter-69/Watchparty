@@ -79,3 +79,4 @@ class InsightsViewModel @Inject constructor(
         val y: Float,
         val label: String
     )
+}
