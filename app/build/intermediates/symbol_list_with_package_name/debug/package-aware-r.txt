@@ -3037,6 +3037,7 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnClearHabits
 id btnClearHistory
 id btnExportData
 id btnSaveApiKey

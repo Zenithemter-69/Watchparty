@@ -1,7 +1,6 @@
 package ascending.com.ascendingg.data.database;
 
 import android.database.Cursor;
-import androidx.annotation.NonNull;
 import androidx.room.CoroutinesRoom;
 import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
@@ -13,8 +12,6 @@ import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
 import java.lang.Class;
 import java.lang.Exception;
-import java.lang.Integer;
-import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -22,8 +19,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
-import kotlin.Unit;
-import kotlin.coroutines.Continuation;
 import kotlinx.coroutines.flow.Flow;
 
 @SuppressWarnings({"unchecked", "deprecation"})
@@ -38,78 +33,73 @@ public final class HabitDao_Impl implements HabitDao {
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteAll;
 
-  public HabitDao_Impl(@NonNull final RoomDatabase __db) {
+  public HabitDao_Impl(RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfHabitEntity = new EntityInsertionAdapter<HabitEntity>(__db) {
       @Override
-      @NonNull
-      protected String createQuery() {
-        return "INSERT OR ABORT INTO `habits` (`id`,`name`,`category`,`timeOfDay`,`isActive`,`targetFrequency`,`completionStreak`,`lastCompleted`) VALUES (nullif(?, 0),?,?,?,?,?,?,?)";
+      public String createQuery() {
+        return "INSERT OR IGNORE INTO `habits` (`id`,`name`,`category`,`timeOfDay`,`isActive`,`targetFrequency`,`completionStreak`,`lastCompleted`) VALUES (nullif(?, 0),?,?,?,?,?,?,?)";
       }
 
       @Override
-      protected void bind(@NonNull final SupportSQLiteStatement statement,
-          @NonNull final HabitEntity entity) {
-        statement.bindLong(1, entity.getId());
-        if (entity.getName() == null) {
-          statement.bindNull(2);
+      public void bind(SupportSQLiteStatement stmt, HabitEntity value) {
+        stmt.bindLong(1, value.getId());
+        if (value.getName() == null) {
+          stmt.bindNull(2);
         } else {
-          statement.bindString(2, entity.getName());
+          stmt.bindString(2, value.getName());
         }
-        if (entity.getCategory() == null) {
-          statement.bindNull(3);
+        if (value.getCategory() == null) {
+          stmt.bindNull(3);
         } else {
-          statement.bindString(3, entity.getCategory());
+          stmt.bindString(3, value.getCategory());
         }
-        if (entity.getTimeOfDay() == null) {
-          statement.bindNull(4);
+        if (value.getTimeOfDay() == null) {
+          stmt.bindNull(4);
         } else {
-          statement.bindString(4, entity.getTimeOfDay());
+          stmt.bindString(4, value.getTimeOfDay());
         }
-        final int _tmp = entity.isActive() ? 1 : 0;
-        statement.bindLong(5, _tmp);
-        statement.bindLong(6, entity.getTargetFrequency());
-        statement.bindLong(7, entity.getCompletionStreak());
-        statement.bindLong(8, entity.getLastCompleted());
+        final int _tmp = value.isActive() ? 1 : 0;
+        stmt.bindLong(5, _tmp);
+        stmt.bindLong(6, value.getTargetFrequency());
+        stmt.bindLong(7, value.getCompletionStreak());
+        stmt.bindLong(8, value.getLastCompleted());
       }
     };
     this.__updateAdapterOfHabitEntity = new EntityDeletionOrUpdateAdapter<HabitEntity>(__db) {
       @Override
-      @NonNull
-      protected String createQuery() {
+      public String createQuery() {
         return "UPDATE OR ABORT `habits` SET `id` = ?,`name` = ?,`category` = ?,`timeOfDay` = ?,`isActive` = ?,`targetFrequency` = ?,`completionStreak` = ?,`lastCompleted` = ? WHERE `id` = ?";
       }
 
       @Override
-      protected void bind(@NonNull final SupportSQLiteStatement statement,
-          @NonNull final HabitEntity entity) {
-        statement.bindLong(1, entity.getId());
-        if (entity.getName() == null) {
-          statement.bindNull(2);
+      public void bind(SupportSQLiteStatement stmt, HabitEntity value) {
+        stmt.bindLong(1, value.getId());
+        if (value.getName() == null) {
+          stmt.bindNull(2);
         } else {
-          statement.bindString(2, entity.getName());
+          stmt.bindString(2, value.getName());
         }
-        if (entity.getCategory() == null) {
-          statement.bindNull(3);
+        if (value.getCategory() == null) {
+          stmt.bindNull(3);
         } else {
-          statement.bindString(3, entity.getCategory());
+          stmt.bindString(3, value.getCategory());
         }
-        if (entity.getTimeOfDay() == null) {
-          statement.bindNull(4);
+        if (value.getTimeOfDay() == null) {
+          stmt.bindNull(4);
         } else {
-          statement.bindString(4, entity.getTimeOfDay());
+          stmt.bindString(4, value.getTimeOfDay());
         }
-        final int _tmp = entity.isActive() ? 1 : 0;
-        statement.bindLong(5, _tmp);
-        statement.bindLong(6, entity.getTargetFrequency());
-        statement.bindLong(7, entity.getCompletionStreak());
-        statement.bindLong(8, entity.getLastCompleted());
-        statement.bindLong(9, entity.getId());
+        final int _tmp = value.isActive() ? 1 : 0;
+        stmt.bindLong(5, _tmp);
+        stmt.bindLong(6, value.getTargetFrequency());
+        stmt.bindLong(7, value.getCompletionStreak());
+        stmt.bindLong(8, value.getLastCompleted());
+        stmt.bindLong(9, value.getId());
       }
     };
     this.__preparedStmtOfIncrementStreak = new SharedSQLiteStatement(__db) {
       @Override
-      @NonNull
       public String createQuery() {
         final String _query = "UPDATE habits SET completionStreak = completionStreak + 1, lastCompleted = ? WHERE id = ?";
         return _query;
@@ -117,7 +107,6 @@ public final class HabitDao_Impl implements HabitDao {
     };
     this.__preparedStmtOfDeleteAll = new SharedSQLiteStatement(__db) {
       @Override
-      @NonNull
       public String createQuery() {
         final String _query = "DELETE FROM habits";
         return _query;
@@ -126,100 +115,72 @@ public final class HabitDao_Impl implements HabitDao {
   }
 
   @Override
-  public Object insertAll(final HabitEntity[] habits,
-      final Continuation<? super long[]> $completion) {
-    return CoroutinesRoom.execute(__db, true, new Callable<long[]>() {
-      @Override
-      public long[] call() throws Exception {
-        __db.beginTransaction();
-        try {
-          final long[] _result = __insertionAdapterOfHabitEntity.insertAndReturnIdsArray(habits);
-          __db.setTransactionSuccessful();
-          return _result;
-        } finally {
-          __db.endTransaction();
-        }
-      }
-    }, $completion);
+  public long[] insertAll(final HabitEntity... habits) {
+    __db.assertNotSuspendingTransaction();
+    __db.beginTransaction();
+    try {
+      long[] _result = __insertionAdapterOfHabitEntity.insertAndReturnIdsArray(habits);
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+    }
   }
 
   @Override
-  public Object update(final HabitEntity habit, final Continuation<? super Integer> $completion) {
-    return CoroutinesRoom.execute(__db, true, new Callable<Integer>() {
-      @Override
-      @NonNull
-      public Integer call() throws Exception {
-        int _total = 0;
-        __db.beginTransaction();
-        try {
-          _total += __updateAdapterOfHabitEntity.handle(habit);
-          __db.setTransactionSuccessful();
-          return _total;
-        } finally {
-          __db.endTransaction();
-        }
-      }
-    }, $completion);
+  public int update(final HabitEntity habit) {
+    __db.assertNotSuspendingTransaction();
+    int _total = 0;
+    __db.beginTransaction();
+    try {
+      _total +=__updateAdapterOfHabitEntity.handle(habit);
+      __db.setTransactionSuccessful();
+      return _total;
+    } finally {
+      __db.endTransaction();
+    }
   }
 
   @Override
-  public Object incrementStreak(final long id, final long timestamp,
-      final Continuation<? super Integer> $completion) {
-    return CoroutinesRoom.execute(__db, true, new Callable<Integer>() {
-      @Override
-      @NonNull
-      public Integer call() throws Exception {
-        final SupportSQLiteStatement _stmt = __preparedStmtOfIncrementStreak.acquire();
-        int _argIndex = 1;
-        _stmt.bindLong(_argIndex, timestamp);
-        _argIndex = 2;
-        _stmt.bindLong(_argIndex, id);
-        try {
-          __db.beginTransaction();
-          try {
-            final Integer _result = _stmt.executeUpdateDelete();
-            __db.setTransactionSuccessful();
-            return _result;
-          } finally {
-            __db.endTransaction();
-          }
-        } finally {
-          __preparedStmtOfIncrementStreak.release(_stmt);
-        }
-      }
-    }, $completion);
+  public int incrementStreak(final long id, final long timestamp) {
+    __db.assertNotSuspendingTransaction();
+    final SupportSQLiteStatement _stmt = __preparedStmtOfIncrementStreak.acquire();
+    int _argIndex = 1;
+    _stmt.bindLong(_argIndex, timestamp);
+    _argIndex = 2;
+    _stmt.bindLong(_argIndex, id);
+    __db.beginTransaction();
+    try {
+      final int _result = _stmt.executeUpdateDelete();
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+      __preparedStmtOfIncrementStreak.release(_stmt);
+    }
   }
 
   @Override
-  public Object deleteAll(final Continuation<? super Unit> $completion) {
-    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
-      @Override
-      @NonNull
-      public Unit call() throws Exception {
-        final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAll.acquire();
-        try {
-          __db.beginTransaction();
-          try {
-            _stmt.executeUpdateDelete();
-            __db.setTransactionSuccessful();
-            return Unit.INSTANCE;
-          } finally {
-            __db.endTransaction();
-          }
-        } finally {
-          __preparedStmtOfDeleteAll.release(_stmt);
-        }
-      }
-    }, $completion);
+  public int deleteAll() {
+    __db.assertNotSuspendingTransaction();
+    final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAll.acquire();
+    __db.beginTransaction();
+    try {
+      final int _result = _stmt.executeUpdateDelete();
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+      __preparedStmtOfDeleteAll.release(_stmt);
+    }
   }
 
   @Override
   public Flow<List<HabitEntity>> getAllHabits() {
     final String _sql = "SELECT * FROM habits WHERE isActive = 1 ORDER BY id";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    return CoroutinesRoom.createFlow(__db, false, new String[] {"habits"}, new Callable<List<HabitEntity>>() {
+    return CoroutinesRoom.createFlow(__db, false, new String[]{"habits"}, new Callable<List<HabitEntity>>() {
       @Override
-      @NonNull
       public List<HabitEntity> call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
@@ -232,7 +193,7 @@ public final class HabitDao_Impl implements HabitDao {
           final int _cursorIndexOfCompletionStreak = CursorUtil.getColumnIndexOrThrow(_cursor, "completionStreak");
           final int _cursorIndexOfLastCompleted = CursorUtil.getColumnIndexOrThrow(_cursor, "lastCompleted");
           final List<HabitEntity> _result = new ArrayList<HabitEntity>(_cursor.getCount());
-          while (_cursor.moveToNext()) {
+          while(_cursor.moveToNext()) {
             final HabitEntity _item;
             final long _tmpId;
             _tmpId = _cursor.getLong(_cursorIndexOfId);
@@ -280,7 +241,6 @@ public final class HabitDao_Impl implements HabitDao {
     });
   }
 
-  @NonNull
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();
   }

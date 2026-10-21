@@ -4,9 +4,9 @@ import ascending.com.ascendingg.data.database.AppDatabase
 import ascending.com.ascendingg.data.database.HabitEntity
 import ascending.com.ascendingg.data.model.Habit
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.shareIn
-import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -31,14 +31,10 @@ class HabitRepository @Inject constructor(
                     lastCompleted = h.lastCompleted
                 )
             }
-        }.stateIn(
-            viewModelScope,
-            SharingStarted.WhileSubscribed(5000),
-            emptyList()
-        )
+        }.asLiveData()
 
     // Insert a new habit (e.g., from UI creation flow)
-    suspend fun addHabit(habit: HabitEntity) = habitDao.insertAll(arrayOf(habit))
+    suspend fun addHabit(habit: HabitEntity) = habitDao.insertAll(habit)
 
     // Update an existing habit (e.g., when completion state changes)
     suspend fun updateHabit(habit: HabitEntity) = habitDao.update(habit)

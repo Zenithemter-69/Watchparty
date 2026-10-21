@@ -90,6 +90,14 @@
             android:text="Clear All History"
             style="@style/Widget.Material3.Button.OutlinedButton" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClearHabits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Clear All Habits"
+            style="@style/Widget.Material3.Button.OutlinedButton" />
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

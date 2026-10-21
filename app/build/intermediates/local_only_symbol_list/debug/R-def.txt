@@ -33,6 +33,7 @@ drawable ic_school_24
 drawable ic_send_24
 id aicoachFragment
 id barChartHabits
+id btnClearHabits
 id btnClearHistory
 id btnExportData
 id btnSaveApiKey

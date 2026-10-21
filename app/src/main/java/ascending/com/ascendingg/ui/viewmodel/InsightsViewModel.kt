@@ -1,10 +1,11 @@
 package ascending.com.ascendingg.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asFlow
 import ascending.com.ascendingg.data.repository.HabitRepository
 import ascending.com.ascendingg.data.repository.WorkoutRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import androidx.lifecycle.asFlow
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.distinctUntilChanged
 import java.text.SimpleDateFormat
@@ -19,13 +20,13 @@ class InsightsViewModel @Inject constructor(
 ) : ViewModel() {
 
     // Habit completion data for the last 7 days
-    val habitCompletionData = habitRepository.habits
+    val habitCompletionData: Flow<List<BarEntryData>> = habitRepository.habits
         .asFlow()
-        .map { habits ->
+        .map { habits: List<ascending.com.ascendingg.data.model.Habit> ->
             // Generate 7 days of habit completion percentages
             val sdf = SimpleDateFormat("EEE", Locale.getDefault())
             val today = Date()
-            (0..6).map { dayOffset ->
+            (0..6).map { dayOffset: Int ->
                 val date = Date(today.time - (6 - dayOffset) * 24 * 60 * 60 * 1000L)
                 val dayName = sdf.format(date)
                 val completed = habits.count { it.lastCompleted > 0 }
@@ -38,12 +39,12 @@ class InsightsViewModel @Inject constructor(
         .distinctUntilChanged()
 
     // Study hours data for the last 7 days (from workouts/study tracking)
-    val studyHoursData = workoutRepository.workouts
+    val studyHoursData: Flow<List<LineEntryData>> = workoutRepository.workouts
         .asFlow()
-        .map { workouts ->
+        .map { workouts: List<ascending.com.ascendingg.data.model.Workout> ->
             val sdf = SimpleDateFormat("EEE", Locale.getDefault())
             val today = Date()
-            (0..6).map { dayOffset ->
+            (0..6).map { dayOffset: Int ->
                 val date = Date(today.time - (6 - dayOffset) * 24 * 60 * 60 * 1000L)
                 val dayName = sdf.format(date)
                 // Filter workouts for this day and calculate total duration

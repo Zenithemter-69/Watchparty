@@ -73,7 +73,9 @@ class ProfileViewModel @Inject constructor(
     }
 
     fun clearAllHabits() {
-        habitRepository.deleteAll()
+        viewModelScope.launch {
+            habitRepository.deleteAll()
+        }
         _hasApiKey.value = false
         _notificationsEnabled.value = false
     }

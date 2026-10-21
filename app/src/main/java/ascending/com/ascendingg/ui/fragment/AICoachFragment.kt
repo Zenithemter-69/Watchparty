@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.viewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -15,6 +15,7 @@ import ascending.com.ascendingg.R
 import ascending.com.ascendingg.databinding.FragmentAicoachBinding
 import ascending.com.ascendingg.ui.adapter.ChatAdapter
 import ascending.com.ascendingg.ui.viewmodel.AICoachViewModel
+import ascending.com.ascendingg.ui.viewmodel.ChatUiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -55,18 +56,18 @@ class AICoachFragment : Fragment(R.layout.fragment_aicoach) {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
                     when (state) {
-                        is AICoachViewModel.ChatUiState.Idle -> {
+                        is ChatUiState.Idle -> {
                             binding.progressBar.visibility = View.GONE
                         }
-                        is AICoachViewModel.ChatUiState.Loading -> {
+                        is ChatUiState.Loading -> {
                             binding.progressBar.visibility = View.VISIBLE
                         }
-                        is AICoachViewModel.ChatUiState.Success -> {
+                        is ChatUiState.Success -> {
                             binding.progressBar.visibility = View.GONE
                             chatAdapter.addAIMessage(state.response)
                             scrollToBottom()
                         }
-                        is AICoachViewModel.ChatUiState.Error -> {
+                        is ChatUiState.Error -> {
                             binding.progressBar.visibility = View.GONE
                             Toast.makeText(
                                 requireContext(),

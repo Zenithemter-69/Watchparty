@@ -45,6 +45,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ascendingg"
         android:usesCleartextTraffic="true" >
+
+        <!-- Google Maps / Location API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_GOOGLE_MAPS_API_KEY" />
+
         <activity
             android:name="ascending.com.ascendingg.ui.main.MainActivity"
             android:exported="true"
@@ -55,11 +61,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Google Maps API Key placeholder - replace with your key -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_GOOGLE_MAPS_API_KEY" />
 
         <!-- Needs to be explicitly declared on P+ -->
         <uses-library

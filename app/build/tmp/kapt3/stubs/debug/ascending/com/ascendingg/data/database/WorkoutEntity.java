@@ -6,18 +6,18 @@ public final class WorkoutEntity {
     @androidx.room.PrimaryKey(autoGenerate = true)
     private final long id = 0L;
     private final long userId = 0L;
-    @org.jetbrains.annotations.NotNull()
+    @org.jetbrains.annotations.NotNull
     private final java.lang.String type = null;
     private final int duration = 0;
-    @org.jetbrains.annotations.NotNull()
+    @org.jetbrains.annotations.NotNull
     private final java.lang.String exercises = null;
-    @org.jetbrains.annotations.NotNull()
+    @org.jetbrains.annotations.NotNull
     private final java.lang.String notes = null;
     private final long timestamp = 0L;
     
-    public WorkoutEntity(long id, long userId, @org.jetbrains.annotations.NotNull()
-    java.lang.String type, int duration, @org.jetbrains.annotations.NotNull()
-    java.lang.String exercises, @org.jetbrains.annotations.NotNull()
+    public WorkoutEntity(long id, long userId, @org.jetbrains.annotations.NotNull
+    java.lang.String type, int duration, @org.jetbrains.annotations.NotNull
+    java.lang.String exercises, @org.jetbrains.annotations.NotNull
     java.lang.String notes, long timestamp) {
         super();
     }
@@ -30,7 +30,7 @@ public final class WorkoutEntity {
         return 0L;
     }
     
-    @org.jetbrains.annotations.NotNull()
+    @org.jetbrains.annotations.NotNull
     public final java.lang.String getType() {
         return null;
     }
@@ -39,12 +39,12 @@ public final class WorkoutEntity {
         return 0;
     }
     
-    @org.jetbrains.annotations.NotNull()
+    @org.jetbrains.annotations.NotNull
     public final java.lang.String getExercises() {
         return null;
     }
     
-    @org.jetbrains.annotations.NotNull()
+    @org.jetbrains.annotations.NotNull
     public final java.lang.String getNotes() {
         return null;
     }
@@ -61,7 +61,7 @@ public final class WorkoutEntity {
         return 0L;
     }
     
-    @org.jetbrains.annotations.NotNull()
+    @org.jetbrains.annotations.NotNull
     public final java.lang.String component3() {
         return null;
     }
@@ -70,12 +70,12 @@ public final class WorkoutEntity {
         return 0;
     }
     
-    @org.jetbrains.annotations.NotNull()
+    @org.jetbrains.annotations.NotNull
     public final java.lang.String component5() {
         return null;
     }
     
-    @org.jetbrains.annotations.NotNull()
+    @org.jetbrains.annotations.NotNull
     public final java.lang.String component6() {
         return null;
     }
@@ -84,27 +84,27 @@ public final class WorkoutEntity {
         return 0L;
     }
     
-    @org.jetbrains.annotations.NotNull()
-    public final ascending.com.ascendingg.data.database.WorkoutEntity copy(long id, long userId, @org.jetbrains.annotations.NotNull()
-    java.lang.String type, int duration, @org.jetbrains.annotations.NotNull()
-    java.lang.String exercises, @org.jetbrains.annotations.NotNull()
+    @org.jetbrains.annotations.NotNull
+    public final ascending.com.ascendingg.data.database.WorkoutEntity copy(long id, long userId, @org.jetbrains.annotations.NotNull
+    java.lang.String type, int duration, @org.jetbrains.annotations.NotNull
+    java.lang.String exercises, @org.jetbrains.annotations.NotNull
     java.lang.String notes, long timestamp) {
         return null;
     }
     
-    @java.lang.Override()
-    public boolean equals(@org.jetbrains.annotations.Nullable()
+    @java.lang.Override
+    public boolean equals(@org.jetbrains.annotations.Nullable
     java.lang.Object other) {
         return false;
     }
     
-    @java.lang.Override()
+    @java.lang.Override
     public int hashCode() {
         return 0;
     }
     
-    @java.lang.Override()
-    @org.jetbrains.annotations.NotNull()
+    @java.lang.Override
+    @org.jetbrains.annotations.NotNull
     public java.lang.String toString() {
         return null;
     }

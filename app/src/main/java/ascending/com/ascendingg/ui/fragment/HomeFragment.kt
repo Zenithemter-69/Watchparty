@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import ascending.com.ascendingg.R
 import ascending.com.ascendingg.databinding.FragmentHomeBinding
@@ -71,7 +72,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         // Update step count display periodically
         lifecycleScope.launch {
-            locationTracker.currentLocation.collect { location ->
+            locationTracker.currentLocationFlow.collect {
                 updateStepDisplay()
             }
         }
@@ -90,7 +91,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             ((completed * 100) / habits.size).toFloat()
         } else 0f
 
-        binding.progressRing.progress = percentage
+        binding.progressRing.progress = percentage.toInt()
         binding.tvProgressText.text = "${percentage.toInt()}%"
         binding.tvProgressLabel.text = "Habit Completion"
     }
