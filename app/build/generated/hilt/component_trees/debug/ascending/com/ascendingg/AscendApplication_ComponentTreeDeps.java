@@ -17,8 +17,6 @@ import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_andro
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ViewModelComponentBuilder;
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ViewWithFragmentComponentBuilder;
 import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_components_SingletonComponent;
-import hilt_aggregated_deps._androidx_hilt_lifecycle_ViewModelFactoryModules_ActivityModuleModuleDeps;
-import hilt_aggregated_deps._androidx_hilt_lifecycle_ViewModelFactoryModules_FragmentModuleModuleDeps;
 import hilt_aggregated_deps._ascending_com_ascendingg_AscendApplication_GeneratedInjector;
 import hilt_aggregated_deps._ascending_com_ascendingg_di_AppModule;
 import hilt_aggregated_deps._ascending_com_ascendingg_ui_fragment_AICoachFragment_GeneratedInjector;
@@ -115,9 +113,7 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _dagger_hilt_android_internal_managers_ViewComponentManager_ViewComponentBuilderEntryPoint.class,
         _dagger_hilt_android_internal_managers_ViewComponentManager_ViewWithFragmentComponentBuilderEntryPoint.class,
         _dagger_hilt_android_internal_modules_ApplicationContextModule.class,
-        _dagger_hilt_android_internal_modules_HiltWrapper_ActivityModule.class,
-        _androidx_hilt_lifecycle_ViewModelFactoryModules_ActivityModuleModuleDeps.class,
-        _androidx_hilt_lifecycle_ViewModelFactoryModules_FragmentModuleModuleDeps.class
+        _dagger_hilt_android_internal_modules_HiltWrapper_ActivityModule.class
     }
 )
 public final class AscendApplication_ComponentTreeDeps {

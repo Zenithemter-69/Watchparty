@@ -1,6 +1,5 @@
 package ascending.com.ascendingg;
 
-import androidx.hilt.lifecycle.ViewModelFactoryModules;
 import ascending.com.ascendingg.di.AppModule;
 import ascending.com.ascendingg.ui.fragment.AICoachFragment_GeneratedInjector;
 import ascending.com.ascendingg.ui.fragment.FitnessFragment_GeneratedInjector;
@@ -181,8 +180,7 @@ public final class AscendApplication_HiltComponents {
           FragmentCBuilderModule.class,
           ViewCBuilderModule.class,
           HiltWrapper_ActivityModule.class,
-          HiltWrapper_DefaultViewModelFactories_ActivityModule.class,
-          ViewModelFactoryModules.ActivityModule.class
+          HiltWrapper_DefaultViewModelFactories_ActivityModule.class
       }
   )
   @ActivityScoped
@@ -227,10 +225,7 @@ public final class AscendApplication_HiltComponents {
   }
 
   @Subcomponent(
-      modules = {
-          ViewWithFragmentCBuilderModule.class,
-          ViewModelFactoryModules.FragmentModule.class
-      }
+      modules = ViewWithFragmentCBuilderModule.class
   )
   @FragmentScoped
   public abstract static class FragmentC implements AICoachFragment_GeneratedInjector,

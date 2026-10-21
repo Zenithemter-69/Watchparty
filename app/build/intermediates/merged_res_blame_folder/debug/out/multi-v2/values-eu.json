@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "ascending.com.ascendingg.app-mergeDebugResources-56:/values-eu/values-eu.xml",
+            "outputFile": "ascending.com.ascendingg.app-mergeDebugResources-55:/values-eu/values-eu.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Yogesh\\.gradle\\caches\\transforms-3\\d9427e5b299a40d97301686048da7b31\\transformed\\jetified-play-services-base-18.1.0\\res\\values-eu\\values.xml",

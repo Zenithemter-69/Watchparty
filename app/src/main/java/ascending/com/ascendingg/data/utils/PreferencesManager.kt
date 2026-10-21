@@ -2,8 +2,14 @@ package ascending.com.ascendingg.data.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class PreferencesManager(private val context: Context) {
+@Singleton
+class PreferencesManager @Inject constructor(
+    @ApplicationContext private val context: Context
+) {
     private val prefs: SharedPreferences = context.getSharedPreferences(
         Constants.PREFS_NAME, Context.MODE_PRIVATE
     )

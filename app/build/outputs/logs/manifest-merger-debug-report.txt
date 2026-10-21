@@ -13,7 +13,6 @@ MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\Yogesh\.grad
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\Yogesh\.gradle\caches\transforms-3\edd7a6baf9d1cdd125fd75132fa8812f\transformed\appcompat-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-maps:18.1.0] C:\Users\Yogesh\.gradle\caches\transforms-3\d9b1a97acfffb47bebc494789add6649\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:17:1-44:12
 MERGED from [com.github.bumptech.glide:glide:4.14.2] C:\Users\Yogesh\.gradle\caches\transforms-3\dd210c4494e364047fd0489302113818\transformed\jetified-glide-4.14.2\AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03] C:\Users\Yogesh\.gradle\caches\transforms-3\e5545e890462ddb48776d24c19dcb1e8\transformed\jetified-hilt-lifecycle-viewmodel-1.0.0-alpha03\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.dagger:hilt-android:2.48] C:\Users\Yogesh\.gradle\caches\transforms-3\7c6126e5d48f2046b6c784dc375deea1\transformed\jetified-hilt-android-2.48\AndroidManifest.xml:16:1-19:12
 MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Yogesh\.gradle\caches\transforms-3\ba17a8bb473cc4ad133bc3aeab237cfb\transformed\recyclerview-1.3.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\Yogesh\.gradle\caches\transforms-3\846b59fbacf98d7ef11ad2e6f7ebf9b1\transformed\jetified-viewpager2-1.1.0-beta02\AndroidManifest.xml:2:1-7:12
@@ -223,8 +222,6 @@ MERGED from [com.google.android.gms:play-services-maps:18.1.0] C:\Users\Yogesh\.
 MERGED from [com.google.android.gms:play-services-maps:18.1.0] C:\Users\Yogesh\.gradle\caches\transforms-3\d9b1a97acfffb47bebc494789add6649\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:glide:4.14.2] C:\Users\Yogesh\.gradle\caches\transforms-3\dd210c4494e364047fd0489302113818\transformed\jetified-glide-4.14.2\AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.bumptech.glide:glide:4.14.2] C:\Users\Yogesh\.gradle\caches\transforms-3\dd210c4494e364047fd0489302113818\transformed\jetified-glide-4.14.2\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03] C:\Users\Yogesh\.gradle\caches\transforms-3\e5545e890462ddb48776d24c19dcb1e8\transformed\jetified-hilt-lifecycle-viewmodel-1.0.0-alpha03\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03] C:\Users\Yogesh\.gradle\caches\transforms-3\e5545e890462ddb48776d24c19dcb1e8\transformed\jetified-hilt-lifecycle-viewmodel-1.0.0-alpha03\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.dagger:hilt-android:2.48] C:\Users\Yogesh\.gradle\caches\transforms-3\7c6126e5d48f2046b6c784dc375deea1\transformed\jetified-hilt-android-2.48\AndroidManifest.xml:18:3-42
 MERGED from [com.google.dagger:hilt-android:2.48] C:\Users\Yogesh\.gradle\caches\transforms-3\7c6126e5d48f2046b6c784dc375deea1\transformed\jetified-hilt-android-2.48\AndroidManifest.xml:18:3-42
 MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Yogesh\.gradle\caches\transforms-3\ba17a8bb473cc4ad133bc3aeab237cfb\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
